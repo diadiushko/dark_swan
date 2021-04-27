@@ -8,13 +8,11 @@ html {
   --main-purple: #ac268a;
   --nav-gray: #e7e7e7;
   --this-red: #dc5b5b;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
 }
 
 body {
   background: rgb(34, 34, 34);
-  scroll-behavior: smooth;
 }
 
 main {
