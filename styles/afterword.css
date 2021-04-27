@@ -1,0 +1,96 @@
+#afterword {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.afterword-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  min-width: 30vw;
+  background: #2e2e2e;
+  text-align: center;
+  color: white;
+  z-index: 15;
+  box-shadow: 0 0 15px 3px rgb(5, 5, 5);
+  padding: 15px;
+  position: relative;
+}
+
+.afterword-title {
+  font-family: 'Staatliches', sans-serif;
+  font-size: calc(2.4rem + 1vw);
+  flex: 2;
+}
+.afterword-title h3 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.afterword-cnt-wrap{
+    flex: 2;
+    position: relative;
+    width: 100%;
+}
+.afterword-content {
+  font-family: 'Poppins', sans-serif;
+  font-size: calc(1.5rem + 0.5vw);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.autograph {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 0.2;
+  margin-left: auto;
+  width: 60%;
+  padding: 15px;
+}
+
+.autograph span {
+  align-self: center;
+  font-family: 'Staatliches', sans-serif;
+  font-size: calc(1.5rem + 1vw);
+}
+
+.afterword-button {
+  margin-top: 2.5rem;
+  border-radius: 1rem;
+  padding: 2rem 10rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px 3px rgb(5, 5, 5);
+  background: #1a1a1a;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: calc(1.5rem + 0.5vw);
+  cursor: pointer;
+  border: 2px solid white;
+  z-index: 15;
+  transition: 0.2s linear;
+}
+
+.afterword-button:hover {
+  background: #292929;
+}
+
+.autograph path {
+  stroke-dasharray: 0 1280px;
+}
+.afterword-board.active .autograph path {
+  animation: Autograph 3s ease forwards;
+}
+@keyframes Autograph {
+  to {
+    stroke-dasharray: 1280px;
+  }
+}
