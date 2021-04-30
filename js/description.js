@@ -4,7 +4,7 @@
   const cards = document.querySelectorAll('.desc-card');
   const titles = document.querySelectorAll('.card-title h2');
 
-  const titlesText = ['Try it out', 'new test every month', 'absolutely free'];
+  const titlesText = ['Try it out', 'new quiz every month', 'absolutely free'];
   // Functions
   function buttonListener(event) {
     const cardIndex = event.target.dataset.desc;

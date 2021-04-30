@@ -7,7 +7,7 @@
     '<br/>',
     ...'this project, either now or after the quiz.',
     '<br/>',
-    ...'Enjoy your programming days :)',
+    ...'Enjoy your programming time :)',
   ];
 
   // Functions

@@ -1,7 +1,7 @@
 {
   const delay = () => Math.floor(Math.random() * 15 + 5) * 1000;
 
-  const randomPos = () => Math.floor(Math.random() * 75);
+  const randomOffset = () => Math.floor(Math.random() * 75);
 
   (function comet() {
     const rocket = document.createElement('img');
@@ -10,7 +10,7 @@
     wrapper.classList.add('rocket-wrap');
     rocket.classList.add('rocket');
     rocket.src = `images/meteor${Math.ceil(Math.random() * 3)}.svg`;
-    rocket.style.right = `${randomPos()}%`;
+    rocket.style.right = `${randomOffset()}%`;
     rocket.style.top = `${window.pageYOffset}px`;
 
     main.append(wrapper);
