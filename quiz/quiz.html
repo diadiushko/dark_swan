@@ -12,10 +12,11 @@
     />
     <link rel="stylesheet" href="../styles/reset.css" />
     <link rel="stylesheet" href="../styles/common.css" />
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="quiz.css" />
     <script defer src="../js/nav-bar.js"></script>
     <script defer src="../js/comets.js"></script>
-    <script defer src="quiz-structure.js"></script>
+    <!-- <script defer type="module" src="quiz-structure.js"></script> -->
+    <!-- <script defer type="module" src="codify.js"></script> -->
     <link rel="icon" href="../images/icon.svg" />
     <title>Dark Swan - Quiz</title>
   </head>
@@ -215,13 +216,28 @@
         <img src="../images/logotype.svg" alt="logotype" />
       </aside>
 
-      <div class="quiz-table">
+      <div class="quiz-wrapper">
+        <div class="quiz-board">
           <div class="quiz-block">
-              <div class="quiz-title"></div>
-              <div class="quiz-question"></div>
-              <div class="quiz-code-block"></div>
+            <div class="quiz-title">Quiz I</div>
+            <div class="quiz-question">Which value result is holding?</div>
+            <div class="quiz-code-block">
+              const result = [1, 2, 3];<br />
+              result.join('');<br />
+              result.split(',');<br />
+              result.reverse();
+            </div>
           </div>
-          <div class="quiz-answers"></div>
+          <div class="quiz-answers">
+            <button type="button" class="quiz-clause">1,2,3</button>
+            <button type="button" class="quiz-clause">123</button>
+            <button type="button" class="quiz-clause">[3, 2, 1]</button>
+            <button type="button" class="quiz-clause">throw an error</button>
+          </div>
+          <aside class="quiz-score">
+            <span>0/15</span>
+          </aside>
+        </div>
       </div>
     </main>
   </body>

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
 
 html {
   font-size: 62.25%;
@@ -59,7 +60,6 @@ svg {
   right: 15rem;
   top: 2rem;
   pointer-events: none;
-  z-index: 500;
 }
 
 .logotype img {
