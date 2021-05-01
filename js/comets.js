@@ -10,6 +10,7 @@
     wrapper.classList.add('rocket-wrap');
     rocket.classList.add('rocket');
     rocket.src = `images/meteor${Math.ceil(Math.random() * 3)}.svg`;
+    rocket.alt = `rocket`;
     rocket.style.right = `${randomOffset()}%`;
     rocket.style.top = `${window.pageYOffset}px`;
 

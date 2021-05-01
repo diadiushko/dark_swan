@@ -1,5 +1,5 @@
 import codify from './codify.js';
-import ModalWindow from './modal.js';
+import createModalWindow from './modal.js';
 
 // DOM Variables
 const quizTitle = document.querySelector('.quiz-title');
@@ -25,13 +25,13 @@ async function getQuiz(url) {
 function codeFiller(data, questNum) {
   const type = data.quizQuestions[questNum].questionType;
   if (type === 'withCode') {
-    codeBlock.style.display = 'block';
+    codeBlock.parentNode.style.display = 'block';
     const rawCode = data.quizQuestions[questNum].questionCode;
     codeBlock.innerHTML = codify(rawCode);
     return;
   }
 
-  codeBlock.style.display = 'none';
+  codeBlock.parentNode.style.display = 'none';
 }
 
 // Filling title with new Data
@@ -71,7 +71,7 @@ function createAnswerInfo(data, userAnswerInx, questNum) {
   const answerInfo = data.quizQuestions[questNum];
   const { question, rightAnswer: rightAnswerInx } = answerInfo;
   const rightAnswer = answerInfo.questionAnswers[rightAnswerInx - 1];
-  const userAnswer = answerInfo.  uestionAnswers[userAnswerInx - 1];
+  const userAnswer = answerInfo.questionAnswers[userAnswerInx - 1];
   const isCorrect = rightAnswerInx == userAnswerInx;
   return {
     question,
@@ -100,10 +100,14 @@ const questionFullfill = await (async function () {
 
     // If this question is the last
     if (questionNum === length) {
+      const answers = document.querySelectorAll('.quiz-clause');
+      answers.forEach((e) => e.classList.remove('active'));
+      const answersInfo = score(data, answer, questionNum - 1);
+      const modalContainer = document.body;
       document.removeEventListener('click', answerButtonListener);
       scoreColumn(questionNum, length);
-      const answersInfo = score(data, answer, questionNum - 1);
-      const [modal, removeModal] = ModalWindow.createModal(document.body, answersInfo);
+
+      createModalWindow(modalContainer, answersInfo);
       return;
     }
 

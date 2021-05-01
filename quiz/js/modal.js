@@ -1,29 +1,54 @@
-export default class ModalWindow {
-  static createModal(container, data) {
-    // Modal creation
-    const wrapper = document.createElement('div');
-    wrapper.classList.add('modal-wrapper');
+export default function createModal(container, data) {
+  // Modal creation
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('modal-wrapper');
+  setTimeout(() => {
+    wrapper.classList.add('active');
+  }, 10);
 
-    // Mark calc
-    const testLength = data.length;
-    const correctAnsw = data.filter((e) => e.isCorrect).length;
-    const resultMark = (correctAnsw * 100) / testLength;
+  // Mark calc
+  const testLength = data.length;
+  const correctAnsw = data.filter((e) => e.isCorrect).length;
+  const resultMark = (correctAnsw * 100) / testLength;
 
-    // Inner html
-    let tableRows = '';
-    for (const questionInfo of data) {
-      tableRows += `<div class="table-row">
+  // Inner html
+  const rows = createInnerRows(data, resultMark);
+  wrapper.insertAdjacentHTML('afterbegin', rows);
+
+  container.append(wrapper);
+
+  function deleteModal() {
+    wrapper.classList.remove('active');
+    setTimeout(() => wrapper.remove(), 800);
+  }
+
+  modalEvents(wrapper, deleteModal);
+}
+
+function modalEvents(wrapper, deleteModal) {
+  const exitBtn = wrapper.querySelector('.close-button');
+
+  function modalCloseListener(event) {
+    const clickedElement = event.target;
+    console.log(clickedElement, wrapper, exitBtn);
+    if (clickedElement === wrapper || clickedElement === exitBtn) deleteModal();
+  }
+  document.addEventListener('click', modalCloseListener);
+}
+
+function createInnerRows(data, resultMark) {
+  let tableRows = '';
+  for (const questionInfo of data) {
+    tableRows += `<div class="table-row">
       <div class="row-question">${questionInfo.question}</div>
       <div class="row-answer ${
         questionInfo.isCorrect ? 'correct' : 'incorrect'
       }">${questionInfo.userAnswer}</div>
       <div class="row-correct">${questionInfo.rightAnswer}</div>
     </div>`;
-    }
+  }
 
-    wrapper.insertAdjacentHTML(
-      'afterbegin',
-      `<div class="modal">
+  return `<div class="modal">
     <div class="test-result">
       <div class="result-table">
         <div class="table-head">
@@ -37,8 +62,8 @@ export default class ModalWindow {
     </div>
     <div class="result-form">
       <h2 class="form-title">Consider a subscribe</h2>
-      <form action="#">
-        <input type="email" required id="result-input" placeholder="mail" />
+      <form action="https://formspree.io/f/xnqljvzg" method="POST">
+        <input type="email" name="email" required id="result-input" placeholder="mail" />
         <label for="result-input"
           >Receive a message reminder every<br />time Dark Swan gets a new
           quiz.</label
@@ -65,16 +90,5 @@ export default class ModalWindow {
       </svg>
       <button type="button" class="close-button">exit</button>
     </div>
-  </div>`
-    );
-    container.append(wrapper);
-
-    setTimeout(() => {
-      wrapper.classList.add('active');
-    }, 0);
-    function deleteModal() {
-      wrapper.remove();
-    }
-    return [wrapper, deleteModal];
-  }
+  </div>`;
 }

@@ -41,6 +41,8 @@ main {
   font-family: 'Staatliches', sans-serif;
   font-size: 7.2rem;
   color: white;
+  position: fixed;
+  top: 6rem;
 }
 
 .quiz-question {

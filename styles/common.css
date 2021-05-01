@@ -38,6 +38,14 @@ svg {
   overflow: visible;
 }
 
+button {
+  border: 2px solid transparent;
+}
+
+button:focus {
+  border: 2px solid white;
+}
+
 .nobr {
   white-space: nowrap;
 }

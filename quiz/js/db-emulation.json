@@ -24,11 +24,10 @@
       "rightAnswer": 3
     },
     {
-      "questionType": "withCode",
-      "question": "Which value is stored in result?",
-      "questionCode": "function foo(a, b) {\n\treturn arguments.length;\n};\nconst result = foo(1, 2, 3, 4);",
-      "questionAnswers": [2, 0, 4, "none of the above"],
-      "rightAnswer": 3
+      "questionType": "withoutCode",
+      "question": "How many threads does JavaScript have?",
+      "questionAnswers": [1, 8, 2, "none of the above"],
+      "rightAnswer": 1
     }
   ]
 }

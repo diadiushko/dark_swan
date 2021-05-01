@@ -12,10 +12,6 @@
   transition: background 0.5s linear;
 }
 
-.modal-wrapper.active {
-  background: rgba(0, 0, 0, 0.8);
-}
-
 .modal {
   background: rgba(255, 255, 255, 0.75);
   border-radius: 10px;
@@ -26,9 +22,14 @@
   transition: transform ease 0.8s;
 }
 
+.modal-wrapper.active {
+  background: rgba(0, 0, 0, 0.8);
+}
+
 .modal-wrapper.active .modal {
   transform: translateY(0);
 }
+
 /* Left Part */
 .test-result {
   flex: 3;
@@ -188,7 +189,7 @@
   border-radius: 25px;
   font-family: 'Poppins', sans-serif;
   font-size: 1.8rem;
-  padding: 5px 0;
+  padding: 5px 10px;
   width: 60%;
   margin: 0 auto 2rem;
 }
