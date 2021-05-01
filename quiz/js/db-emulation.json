@@ -1,0 +1,34 @@
+{
+  "quizId": 1,
+  "quizCreationDate": "Fri Apr 30 2021 15:05:48",
+  "quizQuestions": [
+    {
+      "questionType": "withCode",
+      "question": "Which value is stored in result?",
+      "questionCode": "const result = [1, 2, 3];\nresult.join('');\nresult.split(',');\nresult.reverse();",
+      "questionAnswers": ["1, 2, 3", "123", "[3, 2, 1]", "throw an error"],
+      "rightAnswer": 4
+    },
+    {
+      "questionType": "withCode",
+      "question": "Which value is stored in result?",
+      "questionCode": "const array = [1, 2, 3];\ndelete array[1];\nresult = 2 === array.length;",
+      "questionAnswers": ["true", "false"],
+      "rightAnswer": 2
+    },
+    {
+      "questionType": "withCode",
+      "question": "Which value is stored in result?",
+      "questionCode": "function foo(a, b) {\n\treturn arguments.length;\n};\nconst result = foo(1, 2, 3, 4);",
+      "questionAnswers": [2, 0, 4, "none of the above"],
+      "rightAnswer": 3
+    },
+    {
+      "questionType": "withCode",
+      "question": "Which value is stored in result?",
+      "questionCode": "function foo(a, b) {\n\treturn arguments.length;\n};\nconst result = foo(1, 2, 3, 4);",
+      "questionAnswers": [2, 0, 4, "none of the above"],
+      "rightAnswer": 3
+    }
+  ]
+}
